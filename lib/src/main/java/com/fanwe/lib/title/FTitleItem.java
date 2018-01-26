@@ -28,12 +28,13 @@ public class FTitleItem extends LinearLayout
 
     public ImageView iv_left;
     public ImageView iv_right;
+
+    public LinearLayout ll_text;
     public TextView tv_top;
     public TextView tv_bottom;
-    public LinearLayout ll_text;
 
     private Drawable mBackgroundDrawableSaved;
-    private OnClickListener mOnClickListener;
+    private OnClickListener mOnClickListenerSaved;
 
     private void init()
     {
@@ -122,7 +123,7 @@ public class FTitleItem extends LinearLayout
         if (hasViewVisible())
         {
             setBackgroundDrawableSaved();
-            super.setOnClickListener(mOnClickListener);
+            super.setOnClickListener(mOnClickListenerSaved);
         } else
         {
             setBackgroundTransparent();
@@ -154,7 +155,7 @@ public class FTitleItem extends LinearLayout
     public void setOnClickListener(OnClickListener l)
     {
         super.setOnClickListener(l);
-        mOnClickListener = l;
+        mOnClickListenerSaved = l;
         dealClickListener();
     }
 
