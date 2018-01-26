@@ -72,23 +72,9 @@ public class FTitle extends FrameLayout
     {
         final int color = getResources().getColor(R.color.lib_title_bg_title_bar);
         setBackgroundColor(color);
-
-        final int height = getResources().getDimensionPixelSize(R.dimen.lib_title_height_title_bar);
-        getLayoutParams().height = height;
-        setLayoutParams(getLayoutParams());
     }
 
-    @Override
-    public ViewGroup.LayoutParams getLayoutParams()
-    {
-        ViewGroup.LayoutParams params = super.getLayoutParams();
-        if (params == null)
-        {
-            params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            setLayoutParams(params);
-        }
-        return params;
-    }
+    //---------- add start ----------
 
     /**
      * 往title的左边添加一个item
@@ -159,6 +145,8 @@ public class FTitle extends FrameLayout
         parent.addView(item, params);
         return item;
     }
+
+    //---------- add end ----------
 
     /**
      * 返回左边第几个item
