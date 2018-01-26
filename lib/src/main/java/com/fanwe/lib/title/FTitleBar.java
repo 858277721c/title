@@ -31,7 +31,6 @@ public class FTitleBar extends FrameLayout
     private void init()
     {
         LayoutInflater.from(getContext()).inflate(R.layout.lib_title_title, this, true);
-
         ll_left = findViewById(R.id.lib_title_ll_left);
         ll_middle = findViewById(R.id.lib_title_ll_middle);
         ll_right = findViewById(R.id.lib_title_ll_right);

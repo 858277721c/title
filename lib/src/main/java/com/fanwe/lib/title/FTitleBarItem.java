@@ -38,15 +38,19 @@ public class FTitleBarItem extends FrameLayout
     private void init()
     {
         LayoutInflater.from(getContext()).inflate(R.layout.lib_title_title_item, this, true);
-
         iv_left = findViewById(R.id.lib_title_iv_left);
         iv_right = findViewById(R.id.lib_title_iv_right);
-
         ll_text = findViewById(R.id.lib_title_ll_text);
         tv_top = findViewById(R.id.lib_title_tv_top);
         tv_bottom = findViewById(R.id.lib_title_tv_bottom);
 
+        setDefaultConfig();
         setAllViewsVisibility(View.GONE);
+    }
+
+    private void setDefaultConfig()
+    {
+        setBackgroundDrawable(getResources().getDrawable(R.drawable.lib_title_sel_title_bar_item));
     }
 
     private void setAllViewsVisibility(int visibility)
