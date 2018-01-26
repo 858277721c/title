@@ -1,18 +1,17 @@
 package com.fanwe.lib.title;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class FTitleBarItem extends LinearLayout
+public class FTitleBarItem extends FrameLayout
 {
     public FTitleBarItem(Context context, AttributeSet attrs)
     {
@@ -39,10 +38,6 @@ public class FTitleBarItem extends LinearLayout
     private void init()
     {
         LayoutInflater.from(getContext()).inflate(R.layout.lib_title_title_item, this, true);
-
-        setGravity(Gravity.CENTER);
-        setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT));
-        setBackgroundColor(Color.TRANSPARENT);
 
         iv_left = findViewById(R.id.lib_title_iv_left);
         iv_right = findViewById(R.id.lib_title_iv_right);
