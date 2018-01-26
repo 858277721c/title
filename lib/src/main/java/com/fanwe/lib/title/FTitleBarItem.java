@@ -12,15 +12,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class FTitleItem extends LinearLayout
+public class FTitleBarItem extends LinearLayout
 {
-    public FTitleItem(Context context, AttributeSet attrs)
+    public FTitleBarItem(Context context, AttributeSet attrs)
     {
         super(context, attrs);
         init();
     }
 
-    public FTitleItem(Context context)
+    public FTitleBarItem(Context context)
     {
         super(context);
         init();
@@ -65,34 +65,34 @@ public class FTitleItem extends LinearLayout
         dealClickListener();
     }
 
-    public FTitleItem setTextTop(String text)
+    public FTitleBarItem setTextTop(String text)
     {
         setTextViewVisibleOrGone(text, tv_top);
         dealClickListener();
         return this;
     }
 
-    public FTitleItem setTextBottom(String text)
+    public FTitleBarItem setTextBottom(String text)
     {
         setTextViewVisibleOrGone(text, tv_bottom);
         dealClickListener();
         return this;
     }
 
-    public FTitleItem setBackgroundText(int resId)
+    public FTitleBarItem setBackgroundText(int resId)
     {
         ll_text.setBackgroundResource(resId);
         return this;
     }
 
-    public FTitleItem setImageLeft(int resId)
+    public FTitleBarItem setImageLeft(int resId)
     {
         setImageViewVisibleOrGone(resId, iv_left);
         dealClickListener();
         return this;
     }
 
-    public FTitleItem setImageRight(int resId)
+    public FTitleBarItem setImageRight(int resId)
     {
         setImageViewVisibleOrGone(resId, iv_right);
         dealClickListener();
