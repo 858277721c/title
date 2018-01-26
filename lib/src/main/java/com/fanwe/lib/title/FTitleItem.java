@@ -11,15 +11,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class FTitleBarItem extends FrameLayout
+public class FTitleItem extends FrameLayout
 {
-    public FTitleBarItem(Context context, AttributeSet attrs)
+    public FTitleItem(Context context, AttributeSet attrs)
     {
         super(context, attrs);
         init();
     }
 
-    public FTitleBarItem(Context context)
+    public FTitleItem(Context context)
     {
         super(context);
         init();
@@ -64,34 +64,34 @@ public class FTitleBarItem extends FrameLayout
         dealClickListener();
     }
 
-    public FTitleBarItem setTextTop(String text)
+    public FTitleItem setTextTop(String text)
     {
         setTextViewVisibleOrGone(text, tv_top);
         dealClickListener();
         return this;
     }
 
-    public FTitleBarItem setTextBottom(String text)
+    public FTitleItem setTextBottom(String text)
     {
         setTextViewVisibleOrGone(text, tv_bottom);
         dealClickListener();
         return this;
     }
 
-    public FTitleBarItem setBackgroundText(int resId)
+    public FTitleItem setBackgroundText(int resId)
     {
         ll_text.setBackgroundResource(resId);
         return this;
     }
 
-    public FTitleBarItem setImageLeft(int resId)
+    public FTitleItem setImageLeft(int resId)
     {
         setImageViewVisibleOrGone(resId, iv_left);
         dealClickListener();
         return this;
     }
 
-    public FTitleBarItem setImageRight(int resId)
+    public FTitleItem setImageRight(int resId)
     {
         setImageViewVisibleOrGone(resId, iv_right);
         dealClickListener();

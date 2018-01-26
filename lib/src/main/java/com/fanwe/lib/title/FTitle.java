@@ -8,15 +8,15 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-public class FTitleBar extends FrameLayout
+public class FTitle extends FrameLayout
 {
-    public FTitleBar(Context context)
+    public FTitle(Context context)
     {
         super(context);
         init();
     }
 
-    public FTitleBar(Context context, AttributeSet attrs)
+    public FTitle(Context context, AttributeSet attrs)
     {
         super(context, attrs);
         init();
@@ -50,17 +50,17 @@ public class FTitleBar extends FrameLayout
             mCallback = new Callback()
             {
                 @Override
-                public void onClickItemLeftTitleBar(int index, FTitleBarItem item)
+                public void onClickItemLeftTitleBar(int index, FTitleItem item)
                 {
                 }
 
                 @Override
-                public void onClickItemMiddleTitleBar(int index, FTitleBarItem item)
+                public void onClickItemMiddleTitleBar(int index, FTitleItem item)
                 {
                 }
 
                 @Override
-                public void onClickItemRightTitleBar(int index, FTitleBarItem item)
+                public void onClickItemRightTitleBar(int index, FTitleItem item)
                 {
                 }
             };
@@ -95,9 +95,9 @@ public class FTitleBar extends FrameLayout
      *
      * @return
      */
-    public FTitleBarItem addItemLeft()
+    public FTitleItem addItemLeft()
     {
-        final FTitleBarItem item = addItemToParent(ll_left);
+        final FTitleItem item = addItemToParent(ll_left);
         item.setOnClickListener(new OnClickListener()
         {
             @Override
@@ -115,9 +115,9 @@ public class FTitleBar extends FrameLayout
      *
      * @return
      */
-    public FTitleBarItem addItemRight()
+    public FTitleItem addItemRight()
     {
-        final FTitleBarItem item = addItemToParent(ll_right);
+        final FTitleItem item = addItemToParent(ll_right);
         item.setOnClickListener(new OnClickListener()
         {
             @Override
@@ -135,9 +135,9 @@ public class FTitleBar extends FrameLayout
      *
      * @return
      */
-    public FTitleBarItem addItemMiddle()
+    public FTitleItem addItemMiddle()
     {
-        final FTitleBarItem item = addItemToParent(ll_middle);
+        final FTitleItem item = addItemToParent(ll_middle);
         item.setOnClickListener(new OnClickListener()
         {
             @Override
@@ -150,9 +150,9 @@ public class FTitleBar extends FrameLayout
         return item;
     }
 
-    private FTitleBarItem addItemToParent(final ViewGroup parent)
+    private FTitleItem addItemToParent(final ViewGroup parent)
     {
-        FTitleBarItem item = new FTitleBarItem(getContext());
+        FTitleItem item = new FTitleItem(getContext());
 
 
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
@@ -166,9 +166,9 @@ public class FTitleBar extends FrameLayout
      * @param index
      * @return
      */
-    public FTitleBarItem getItemLeft(int index)
+    public FTitleItem getItemLeft(int index)
     {
-        return (FTitleBarItem) ll_left.getChildAt(index);
+        return (FTitleItem) ll_left.getChildAt(index);
     }
 
     /**
@@ -177,9 +177,9 @@ public class FTitleBar extends FrameLayout
      * @param index
      * @return
      */
-    public FTitleBarItem getItemRight(int index)
+    public FTitleItem getItemRight(int index)
     {
-        return (FTitleBarItem) ll_right.getChildAt(index);
+        return (FTitleItem) ll_right.getChildAt(index);
     }
 
     /**
@@ -188,9 +188,9 @@ public class FTitleBar extends FrameLayout
      * @param index
      * @return
      */
-    public FTitleBarItem getItemMiddle(int index)
+    public FTitleItem getItemMiddle(int index)
     {
-        return (FTitleBarItem) ll_middle.getChildAt(index);
+        return (FTitleItem) ll_middle.getChildAt(index);
     }
 
     /**
@@ -198,7 +198,7 @@ public class FTitleBar extends FrameLayout
      *
      * @return
      */
-    public FTitleBar removeAllItemLeft()
+    public FTitle removeAllItemLeft()
     {
         ll_left.removeAllViews();
         return this;
@@ -209,7 +209,7 @@ public class FTitleBar extends FrameLayout
      *
      * @return
      */
-    public FTitleBar removeAllItemMiddle()
+    public FTitle removeAllItemMiddle()
     {
         ll_middle.removeAllViews();
         return this;
@@ -220,7 +220,7 @@ public class FTitleBar extends FrameLayout
      *
      * @return
      */
-    public FTitleBar removeAllItemRight()
+    public FTitle removeAllItemRight()
     {
         ll_right.removeAllViews();
         return this;
@@ -234,7 +234,7 @@ public class FTitleBar extends FrameLayout
      * @param view
      * @return
      */
-    public FTitleBar setCustomViewLeft(View view)
+    public FTitle setCustomViewLeft(View view)
     {
         removeAllItemLeft();
         if (view != null)
@@ -250,7 +250,7 @@ public class FTitleBar extends FrameLayout
      * @param view
      * @return
      */
-    public FTitleBar setCustomViewMiddle(View view)
+    public FTitle setCustomViewMiddle(View view)
     {
         removeAllItemMiddle();
         if (view != null)
@@ -266,7 +266,7 @@ public class FTitleBar extends FrameLayout
      * @param view
      * @return
      */
-    public FTitleBar setCustomViewRight(View view)
+    public FTitle setCustomViewRight(View view)
     {
         removeAllItemRight();
         if (view != null)
@@ -280,10 +280,10 @@ public class FTitleBar extends FrameLayout
 
     public interface Callback
     {
-        void onClickItemLeftTitleBar(int index, FTitleBarItem item);
+        void onClickItemLeftTitleBar(int index, FTitleItem item);
 
-        void onClickItemMiddleTitleBar(int index, FTitleBarItem item);
+        void onClickItemMiddleTitleBar(int index, FTitleItem item);
 
-        void onClickItemRightTitleBar(int index, FTitleBarItem item);
+        void onClickItemRightTitleBar(int index, FTitleItem item);
     }
 }
