@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:minWidth="@dimen/lib_title_width_title_bar_item"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/lib_title_iv_left"
+        android:layout_width="@dimen/lib_title_width_title_bar_item_image"
+        android:layout_height="@dimen/lib_title_height_title_bar_item_image" />
+
+    <LinearLayout
+        android:id="@+id/lib_title_ll_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lib_title_tv_top"
+            style="@style/lib_title_text_title_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="top" />
+
+        <TextView
+            android:id="@+id/lib_title_tv_bottom"
+            style="@style/lib_title_text_title_bar_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="bottom" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/lib_title_iv_right"
+        android:layout_width="@dimen/lib_title_width_title_bar_item_image"
+        android:layout_height="@dimen/lib_title_height_title_bar_item_image" />
+
+</LinearLayout>

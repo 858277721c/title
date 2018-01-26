@@ -1,0 +1,16 @@
+<resources>
+
+    <!-- 标题栏颜色 -->
+    <color name="lib_title_bg_title_bar">#FB6F08</color>
+
+    <!-- 标题栏item背景颜色 -->
+    <color name="lib_title_bg_title_bar_item">@color/lib_title_bg_title_bar</color>
+    <!-- 标题栏item按下背景颜色 -->
+    <color name="lib_title_bg_title_bar_item_press">#FFCC66</color>
+
+    <!-- 标题栏文字颜色 -->
+    <color name="lib_title_text_title_bar">#FFFFFF</color>
+    <!-- 标题栏较小的文字颜色 -->
+    <color name="lib_title_text_title_bar_sub">@color/lib_title_text_title_bar</color>
+
+</resources>
