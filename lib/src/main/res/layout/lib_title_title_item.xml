@@ -4,7 +4,9 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:minWidth="@dimen/lib_title_width_title_bar_item"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp">
 
     <ImageView
         android:id="@+id/lib_title_iv_left"
@@ -15,8 +17,6 @@
         android:id="@+id/lib_title_ll_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">

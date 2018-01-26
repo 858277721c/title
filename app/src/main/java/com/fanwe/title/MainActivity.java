@@ -17,9 +17,18 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mTitle = findViewById(R.id.view_title);
-
         mTitle.setCallback(this);
-        mTitle.addItemLeft().setImageLeft(R.drawable.ic_launcher_background);
+
+        mTitle.addItemLeft().setImageLeft(R.drawable.ic_arrow_left_white).setTextBottom("返回");
+
+        mTitle.addItemMiddle()
+                .setImageLeft(R.drawable.ic_arrow_left_white)
+                .setImageRight(R.drawable.ic_arrow_right_white)
+                .setTextTop("top")
+                .setTextBottom("bottom");
+
+        mTitle.addItemRight().setTextBottom("关注");
+        mTitle.addItemRight().setTextBottom("收藏");
     }
 
     @Override
