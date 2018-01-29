@@ -106,6 +106,54 @@ public class FTitle extends FrameLayout
         return ll_right;
     }
 
+    /**
+     * 初始化左边item的数量
+     *
+     * @param count
+     * @return
+     */
+    public FTitle setItemCountLeft(int count)
+    {
+        getContainerLeft().removeAllViews();
+        for (int i = 0; i < count; i++)
+        {
+            addItemLeft();
+        }
+        return this;
+    }
+
+    /**
+     * 初始化中间item的数量
+     *
+     * @param count
+     * @return
+     */
+    public FTitle setItemCountMiddle(int count)
+    {
+        getContainerMiddle().removeAllViews();
+        for (int i = 0; i < count; i++)
+        {
+            addItemMiddle();
+        }
+        return this;
+    }
+
+    /**
+     * 初始化中间item的数量
+     *
+     * @param count
+     * @return
+     */
+    public FTitle setItemCountRight(int count)
+    {
+        getContainerRight().removeAllViews();
+        for (int i = 0; i < count; i++)
+        {
+            addItemRight();
+        }
+        return this;
+    }
+
     //---------- add start ----------
 
     /**
