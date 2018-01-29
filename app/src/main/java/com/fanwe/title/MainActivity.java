@@ -49,12 +49,8 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
         mTitleCustom.setContainerLinearLayout(); //设置title最外层布局为LinearLayout，默认是FrameLayout
         mTitleCustom.setCallback(this);
 
-        mTitleCustom.addItemLeft()
-                .setImageLeft(R.drawable.ic_arrow_left_white)
-                .setTextBottom("返回");
-
+        mTitleCustom.addItemLeft().setImageLeft(R.drawable.ic_arrow_left_white);
         mTitleCustom.setViewMiddle(R.layout.view_title_middle); //设置中间自定义view布局，支持左边，中间，右边
-
         mTitleCustom.addItemRight().setTextBottom("搜索");
     }
 
