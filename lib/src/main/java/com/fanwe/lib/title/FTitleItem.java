@@ -100,8 +100,10 @@ public class FTitleItem extends FrameLayout
 
     private boolean hasViewVisible()
     {
-        if (iv_left.getVisibility() == View.VISIBLE || tv_top.getVisibility() == View.VISIBLE || tv_bottom.getVisibility() == View.VISIBLE
-                || iv_right.getVisibility() == View.VISIBLE)
+        if (iv_left.getVisibility() == View.VISIBLE ||
+                iv_right.getVisibility() == View.VISIBLE ||
+                tv_top.getVisibility() == View.VISIBLE ||
+                tv_bottom.getVisibility() == View.VISIBLE)
         {
             if (tv_top.getVisibility() == View.VISIBLE || tv_bottom.getVisibility() == View.VISIBLE)
             {
