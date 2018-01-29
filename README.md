@@ -70,3 +70,10 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
     }
 }
 ```
+
+## 可以覆盖的配置
+[colors](https://github.com/zj565061763/title/tree/master/lib/src/main/res/values/colors.xml)
+<br>
+[dimens](https://github.com/zj565061763/title/tree/master/lib/src/main/res/values/dimens.xml)
+<br>
+[styles](https://github.com/zj565061763/title/tree/master/lib/src/main/res/values/styles.xml)
