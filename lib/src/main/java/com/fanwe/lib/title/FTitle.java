@@ -181,39 +181,6 @@ public class FTitle extends FrameLayout
         return (FTitleItem) ll_middle.getChildAt(index);
     }
 
-    /**
-     * 移除左边所有item
-     *
-     * @return
-     */
-    public FTitle removeAllItemLeft()
-    {
-        ll_left.removeAllViews();
-        return this;
-    }
-
-    /**
-     * 移除中间所有item
-     *
-     * @return
-     */
-    public FTitle removeAllItemMiddle()
-    {
-        ll_middle.removeAllViews();
-        return this;
-    }
-
-    /**
-     * 移除右边所有item
-     *
-     * @return
-     */
-    public FTitle removeAllItemRight()
-    {
-        ll_right.removeAllViews();
-        return this;
-    }
-
     //---------- custom start ----------
 
     /**
@@ -222,9 +189,9 @@ public class FTitle extends FrameLayout
      * @param view
      * @return
      */
-    public FTitle setCustomViewLeft(View view)
+    public FTitle setViewLeft(View view)
     {
-        removeAllItemLeft();
+        ll_left.removeAllViews();
         if (view != null)
         {
             ll_left.addView(view);
@@ -238,9 +205,9 @@ public class FTitle extends FrameLayout
      * @param view
      * @return
      */
-    public FTitle setCustomViewMiddle(View view)
+    public FTitle setViewMiddle(View view)
     {
-        removeAllItemMiddle();
+        ll_middle.removeAllViews();
         if (view != null)
         {
             ll_middle.addView(view);
@@ -254,9 +221,9 @@ public class FTitle extends FrameLayout
      * @param view
      * @return
      */
-    public FTitle setCustomViewRight(View view)
+    public FTitle setViewRight(View view)
     {
-        removeAllItemRight();
+        ll_right.removeAllViews();
         if (view != null)
         {
             ll_right.addView(view);
