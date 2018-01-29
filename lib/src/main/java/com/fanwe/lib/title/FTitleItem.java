@@ -59,20 +59,20 @@ public class FTitleItem extends FrameLayout
         ll_text.setVisibility(visibility);
         tv_top.setVisibility(visibility);
         tv_bottom.setVisibility(visibility);
-        dealClickListener();
+        updateItemState();
     }
 
     public FTitleItem setTextTop(String text)
     {
         setTextViewVisibleOrGone(text, tv_top);
-        dealClickListener();
+        updateItemState();
         return this;
     }
 
     public FTitleItem setTextBottom(String text)
     {
         setTextViewVisibleOrGone(text, tv_bottom);
-        dealClickListener();
+        updateItemState();
         return this;
     }
 
@@ -85,30 +85,30 @@ public class FTitleItem extends FrameLayout
     public FTitleItem setImageLeft(int resId)
     {
         setImageViewVisibleOrGone(resId, iv_left);
-        dealClickListener();
+        updateItemState();
         return this;
     }
 
     public FTitleItem setImageRight(int resId)
     {
         setImageViewVisibleOrGone(resId, iv_right);
-        dealClickListener();
+        updateItemState();
         return this;
     }
 
     private boolean hasViewVisible()
     {
-        if (iv_left.getVisibility() == View.VISIBLE ||
-                iv_right.getVisibility() == View.VISIBLE ||
-                tv_top.getVisibility() == View.VISIBLE ||
-                tv_bottom.getVisibility() == View.VISIBLE)
+        if (iv_left.getVisibility() == VISIBLE ||
+                iv_right.getVisibility() == VISIBLE ||
+                tv_top.getVisibility() == VISIBLE ||
+                tv_bottom.getVisibility() == VISIBLE)
         {
-            if (tv_top.getVisibility() == View.VISIBLE || tv_bottom.getVisibility() == View.VISIBLE)
+            if (tv_top.getVisibility() == VISIBLE || tv_bottom.getVisibility() == VISIBLE)
             {
-                ll_text.setVisibility(View.VISIBLE);
+                ll_text.setVisibility(VISIBLE);
             } else
             {
-                ll_text.setVisibility(View.GONE);
+                ll_text.setVisibility(GONE);
             }
             return true;
         } else
@@ -117,16 +117,19 @@ public class FTitleItem extends FrameLayout
         }
     }
 
-    private void dealClickListener()
+    /**
+     * 更新item的状态
+     */
+    private void updateItemState()
     {
         if (hasViewVisible())
         {
             super.setOnClickListener(mOnClickListenerSaved);
-            setClickable(true);
+            setVisibility(VISIBLE);
         } else
         {
             super.setOnClickListener(null);
-            setClickable(false);
+            setVisibility(GONE);
         }
     }
 
@@ -135,7 +138,7 @@ public class FTitleItem extends FrameLayout
     {
         super.setOnClickListener(l);
         mOnClickListenerSaved = l;
-        dealClickListener();
+        updateItemState();
     }
 
     //---------- util method start ----------
