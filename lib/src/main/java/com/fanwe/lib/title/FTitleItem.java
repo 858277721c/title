@@ -5,6 +5,8 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -136,6 +138,19 @@ public class FTitleItem extends FrameLayout
         final boolean isClickable = isClickable();
         super.setOnClickListener(l);
         setClickable(isClickable);
+    }
+
+    /**
+     * 移除item
+     */
+    public void removeSelf()
+    {
+        ViewParent viewParent = getParent();
+        if (viewParent instanceof ViewGroup)
+        {
+            ViewGroup viewGroup = (ViewGroup) viewParent;
+            viewGroup.removeView(this);
+        }
     }
 
     //---------- util method start ----------
