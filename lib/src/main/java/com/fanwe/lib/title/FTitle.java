@@ -30,7 +30,7 @@ public class FTitle extends FrameLayout
 
     private void init()
     {
-        setModeFrameLayout();
+        setLayoutModeFrameLayout();
         setDefaultConfig();
     }
 
@@ -41,7 +41,7 @@ public class FTitle extends FrameLayout
         ll_right = findViewById(R.id.lib_title_ll_right);
     }
 
-    public void setModeFrameLayout()
+    public void setLayoutModeFrameLayout()
     {
         removeAllViews();
         LayoutInflater.from(getContext()).inflate(R.layout.lib_title_title_mode_framelayout, this, true);
