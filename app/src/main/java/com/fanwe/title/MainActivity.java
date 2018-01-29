@@ -10,7 +10,7 @@ import com.fanwe.lib.title.FTitleItem;
 public class MainActivity extends AppCompatActivity implements FTitle.Callback
 {
     public static final String TAG = MainActivity.class.getSimpleName();
-    private FTitle mTitle;
+    private FTitle mTitle, mTitleCustom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -18,7 +18,14 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mTitle = findViewById(R.id.view_title);
+        mTitleCustom = findViewById(R.id.view_title_custom);
 
+        initTitle();
+        initTitleCustom();
+    }
+
+    private void initTitle()
+    {
         mTitle.setCallback(this); //设置回调对象
 
         mTitle.addItemLeft()                                  //往左边添加一个item
@@ -35,9 +42,20 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
         mTitle.addItemRight().setTextBottom("收藏"); //往右边添加一个按钮
 
 //        mTitle.getItemMiddle(0).removeSelf(); //移除中间第0个item，支持左边，中间，右边
+    }
 
-//        mTitle.setViewMiddle(view);                       //设置中间自定义view，支持左边，中间，右边
-//        mTitle.setViewMiddle(R.layout.view_title_middle); //设置中间自定义view布局，支持左边，中间，右边
+    private void initTitleCustom()
+    {
+        mTitleCustom.setContainerLinearLayout(); //设置title最外层布局为LinearLayout，默认是FrameLayout
+        mTitleCustom.setCallback(this);
+
+        mTitleCustom.addItemLeft()
+                .setImageLeft(R.drawable.ic_arrow_left_white)
+                .setTextBottom("返回");
+
+        mTitleCustom.setViewMiddle(R.layout.view_title_middle); //设置中间自定义view布局，支持左边，中间，右边
+
+        mTitleCustom.addItemRight().setTextBottom("搜索");
     }
 
     @Override
