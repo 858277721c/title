@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mTitle = findViewById(R.id.view_title);
-        mTitle.setCallback(this);
+
+        mTitle.setCallback(this); //设置回调对象
 
         mTitle.addItemLeft()                                  //往左边添加一个item
                 .setImageLeft(R.drawable.ic_arrow_left_white) //设置item左边的图标
@@ -42,6 +43,10 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
 //        mTitle.getItemRight(0);  //返回右边第0个item
 
 //        mTitle.getItemRight(0).removeSelf(); //移除右边第0个item
+
+//        mTitle.setCustomViewLeft(view);   //设置左边自定义view
+//        mTitle.setCustomViewMiddle(view); //设置中间自定义view
+//        mTitle.setCustomViewRight(view);  //设置右边自定义view
     }
 
     @Override
