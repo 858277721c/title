@@ -1,7 +1,6 @@
 package com.fanwe.lib.title;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -32,7 +31,6 @@ public class FTitleItem extends FrameLayout
     public TextView tv_top;
     public TextView tv_bottom;
 
-    private Drawable mBackgroundDrawableSaved;
     private OnClickListener mOnClickListenerSaved;
 
     private void init()
@@ -123,33 +121,13 @@ public class FTitleItem extends FrameLayout
     {
         if (hasViewVisible())
         {
-            setBackgroundDrawableSaved();
             super.setOnClickListener(mOnClickListenerSaved);
+            setClickable(true);
         } else
         {
-            setBackgroundTransparent();
             super.setOnClickListener(null);
+            setClickable(false);
         }
-    }
-
-    private void setBackgroundDrawableSaved()
-    {
-        int top = getPaddingTop();
-        int bottom = getPaddingBottom();
-        int left = getPaddingLeft();
-        int right = getPaddingRight();
-        super.setBackgroundDrawable(mBackgroundDrawableSaved);
-        setPadding(left, top, right, bottom);
-    }
-
-    private void setBackgroundTransparent()
-    {
-        int top = getPaddingTop();
-        int bottom = getPaddingBottom();
-        int left = getPaddingLeft();
-        int right = getPaddingRight();
-        super.setBackgroundDrawable(null);
-        setPadding(left, top, right, bottom);
     }
 
     @Override
@@ -158,14 +136,6 @@ public class FTitleItem extends FrameLayout
         super.setOnClickListener(l);
         mOnClickListenerSaved = l;
         dealClickListener();
-    }
-
-    @Override
-    @Deprecated
-    public void setBackgroundDrawable(Drawable background)
-    {
-        super.setBackgroundDrawable(background);
-        mBackgroundDrawableSaved = background;
     }
 
     //---------- util method start ----------
