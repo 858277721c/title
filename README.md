@@ -3,7 +3,7 @@
 
 
 ## 效果图
-![](http://thumbsnap.com/i/W9PZ6Ish.gif?0128)
+![](http://thumbsnap.com/i/2anak4Oo.gif?0129)
 
 ## 使用
 
