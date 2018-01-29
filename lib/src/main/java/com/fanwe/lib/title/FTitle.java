@@ -48,6 +48,13 @@ public class FTitle extends FrameLayout
         findViews();
     }
 
+    public void setContainerLinearLayout()
+    {
+        removeAllViews();
+        LayoutInflater.from(getContext()).inflate(R.layout.lib_title_title_container_linearlayout, this, true);
+        findViews();
+    }
+
     public void setCallback(Callback callback)
     {
         mCallback = callback;
