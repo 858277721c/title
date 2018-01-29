@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
 //        mTitle.getItemLeft(0);   //返回左边第0个item
 //        mTitle.getItemMiddle(0); //返回中间第0个item
 //        mTitle.getItemRight(0);  //返回右边第0个item
+
+//        mTitle.getItemRight(0).removeSelf(); //移除右边第0个item
     }
 
     @Override
