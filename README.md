@@ -19,10 +19,11 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/lib_title_height_title_bar" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <com.fanwe.lib.title.FTitle
+        android:id="@+id/view_title_custom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lib_title_height_title_bar"
+        android:layout_marginTop="10dp" />
 
 </LinearLayout>
 ```
@@ -31,7 +32,7 @@
 public class MainActivity extends AppCompatActivity implements FTitle.Callback
 {
     public static final String TAG = MainActivity.class.getSimpleName();
-    private FTitle mTitle;
+    private FTitle mTitle, mTitleCustom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,7 +40,15 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mTitle = findViewById(R.id.view_title);
-        mTitle.setCallback(this);
+        mTitleCustom = findViewById(R.id.view_title_custom);
+
+        initTitle();
+        initTitleCustom();
+    }
+
+    private void initTitle()
+    {
+        mTitle.setCallback(this); //设置回调对象
 
         mTitle.addItemLeft()                                  //往左边添加一个item
                 .setImageLeft(R.drawable.ic_arrow_left_white) //设置item左边的图标
@@ -54,15 +63,21 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
         mTitle.addItemRight().setTextBottom("关注"); //往右边添加一个按钮
         mTitle.addItemRight().setTextBottom("收藏"); //往右边添加一个按钮
 
-//        mTitle.removeAllItemLeft();   //移除左边所有item
-//        mTitle.removeAllItemMiddle(); //移除中间所有item
-//        mTitle.removeAllItemRight();  //移除右边所有item
+//        mTitle.getItemMiddle(0).removeSelf(); //移除中间第0个item，支持左边，中间，右边
+    }
 
-//        mTitle.getItemLeft(0);   //返回左边第0个item
-//        mTitle.getItemMiddle(0); //返回中间第0个item
-//        mTitle.getItemRight(0);  //返回右边第0个item
+    private void initTitleCustom()
+    {
+        mTitleCustom.setContainerLinearLayout(); //设置title最外层布局为LinearLayout，默认是FrameLayout
+        mTitleCustom.setCallback(this);
 
-//        mTitle.getItemRight(0).removeSelf(); //移除右边第0个item
+        mTitleCustom.addItemLeft()
+                .setImageLeft(R.drawable.ic_arrow_left_white)
+                .setTextBottom("返回");
+
+        mTitleCustom.setViewMiddle(R.layout.view_title_middle); //设置中间自定义view布局，支持左边，中间，右边
+
+        mTitleCustom.addItemRight().setTextBottom("搜索");
     }
 
     @Override
