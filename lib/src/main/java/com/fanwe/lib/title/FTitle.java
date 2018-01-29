@@ -97,26 +97,6 @@ public class FTitle extends FrameLayout
     }
 
     /**
-     * 往title的右边添加一个item
-     *
-     * @return
-     */
-    public FTitleItem addItemRight()
-    {
-        final FTitleItem item = addItemToParent(ll_right);
-        item.setOnClickListener(new OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                final int index = ll_right.indexOfChild(item);
-                getCallback().onClickItemRightTitleBar(index, item);
-            }
-        });
-        return item;
-    }
-
-    /**
      * 往title的中间添加一个item
      *
      * @return
@@ -136,10 +116,29 @@ public class FTitle extends FrameLayout
         return item;
     }
 
+    /**
+     * 往title的右边添加一个item
+     *
+     * @return
+     */
+    public FTitleItem addItemRight()
+    {
+        final FTitleItem item = addItemToParent(ll_right);
+        item.setOnClickListener(new OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                final int index = ll_right.indexOfChild(item);
+                getCallback().onClickItemRightTitleBar(index, item);
+            }
+        });
+        return item;
+    }
+
     private FTitleItem addItemToParent(final ViewGroup parent)
     {
         FTitleItem item = new FTitleItem(getContext());
-
 
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
         parent.addView(item, params);
