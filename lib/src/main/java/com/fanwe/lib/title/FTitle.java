@@ -84,6 +84,21 @@ public class FTitle extends FrameLayout
         setBackgroundColor(color);
     }
 
+    public LinearLayout getContainerLeft()
+    {
+        return ll_left;
+    }
+
+    public LinearLayout getContainerMiddle()
+    {
+        return ll_middle;
+    }
+
+    public LinearLayout getContainerRight()
+    {
+        return ll_right;
+    }
+
     //---------- add start ----------
 
     /**
@@ -93,13 +108,13 @@ public class FTitle extends FrameLayout
      */
     public FTitleItem addItemLeft()
     {
-        final FTitleItem item = addItemToParent(ll_left);
+        final FTitleItem item = addItemToParent(getContainerLeft());
         item.setOnClickListener(new OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                final int index = ll_left.indexOfChild(item);
+                final int index = getContainerLeft().indexOfChild(item);
                 getCallback().onClickItemLeftTitleBar(index, item);
             }
         });
@@ -113,13 +128,13 @@ public class FTitle extends FrameLayout
      */
     public FTitleItem addItemMiddle()
     {
-        final FTitleItem item = addItemToParent(ll_middle);
+        final FTitleItem item = addItemToParent(getContainerMiddle());
         item.setOnClickListener(new OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                final int index = ll_middle.indexOfChild(item);
+                final int index = getContainerMiddle().indexOfChild(item);
                 getCallback().onClickItemMiddleTitleBar(index, item);
             }
         });
@@ -134,13 +149,13 @@ public class FTitle extends FrameLayout
      */
     public FTitleItem addItemRight()
     {
-        final FTitleItem item = addItemToParent(ll_right);
+        final FTitleItem item = addItemToParent(getContainerRight());
         item.setOnClickListener(new OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
-                final int index = ll_right.indexOfChild(item);
+                final int index = getContainerRight().indexOfChild(item);
                 getCallback().onClickItemRightTitleBar(index, item);
             }
         });
@@ -166,18 +181,7 @@ public class FTitle extends FrameLayout
      */
     public FTitleItem getItemLeft(int index)
     {
-        return (FTitleItem) ll_left.getChildAt(index);
-    }
-
-    /**
-     * 返回中间第几个item
-     *
-     * @param index
-     * @return
-     */
-    public FTitleItem getItemRight(int index)
-    {
-        return (FTitleItem) ll_right.getChildAt(index);
+        return (FTitleItem) getContainerLeft().getChildAt(index);
     }
 
     /**
@@ -188,7 +192,18 @@ public class FTitle extends FrameLayout
      */
     public FTitleItem getItemMiddle(int index)
     {
-        return (FTitleItem) ll_middle.getChildAt(index);
+        return (FTitleItem) getContainerMiddle().getChildAt(index);
+    }
+
+    /**
+     * 返回中间第几个item
+     *
+     * @param index
+     * @return
+     */
+    public FTitleItem getItemRight(int index)
+    {
+        return (FTitleItem) getContainerRight().getChildAt(index);
     }
 
     //---------- custom start ----------
@@ -201,10 +216,10 @@ public class FTitle extends FrameLayout
      */
     public FTitle setViewLeft(int layoutId)
     {
-        ll_left.removeAllViews();
+        getContainerLeft().removeAllViews();
         if (layoutId != 0)
         {
-            LayoutInflater.from(getContext()).inflate(layoutId, ll_left, true);
+            LayoutInflater.from(getContext()).inflate(layoutId, getContainerLeft(), true);
         }
         return this;
     }
@@ -217,10 +232,10 @@ public class FTitle extends FrameLayout
      */
     public FTitle setViewMiddle(int layoutId)
     {
-        ll_middle.removeAllViews();
+        getContainerMiddle().removeAllViews();
         if (layoutId != 0)
         {
-            LayoutInflater.from(getContext()).inflate(layoutId, ll_middle, true);
+            LayoutInflater.from(getContext()).inflate(layoutId, getContainerMiddle(), true);
         }
         return this;
     }
@@ -233,10 +248,10 @@ public class FTitle extends FrameLayout
      */
     public FTitle setViewRight(int layoutId)
     {
-        ll_right.removeAllViews();
+        getContainerRight().removeAllViews();
         if (layoutId != 0)
         {
-            LayoutInflater.from(getContext()).inflate(layoutId, ll_right, true);
+            LayoutInflater.from(getContext()).inflate(layoutId, getContainerRight(), true);
         }
         return this;
     }
@@ -249,10 +264,10 @@ public class FTitle extends FrameLayout
      */
     public FTitle setViewLeft(View view)
     {
-        ll_left.removeAllViews();
+        getContainerLeft().removeAllViews();
         if (view != null)
         {
-            ll_left.addView(view);
+            getContainerLeft().addView(view);
         }
         return this;
     }
@@ -265,10 +280,10 @@ public class FTitle extends FrameLayout
      */
     public FTitle setViewMiddle(View view)
     {
-        ll_middle.removeAllViews();
+        getContainerMiddle().removeAllViews();
         if (view != null)
         {
-            ll_middle.addView(view);
+            getContainerMiddle().addView(view);
         }
         return this;
     }
@@ -281,10 +296,10 @@ public class FTitle extends FrameLayout
      */
     public FTitle setViewRight(View view)
     {
-        ll_right.removeAllViews();
+        getContainerRight().removeAllViews();
         if (view != null)
         {
-            ll_right.addView(view);
+            getContainerRight().addView(view);
         }
         return this;
     }
