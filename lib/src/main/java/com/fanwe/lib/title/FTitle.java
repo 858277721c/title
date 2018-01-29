@@ -184,6 +184,54 @@ public class FTitle extends FrameLayout
     //---------- custom start ----------
 
     /**
+     * 设置左边自定义view布局id
+     *
+     * @param layoutId
+     * @return
+     */
+    public FTitle setViewLeft(int layoutId)
+    {
+        ll_left.removeAllViews();
+        if (layoutId != 0)
+        {
+            LayoutInflater.from(getContext()).inflate(layoutId, ll_left, true);
+        }
+        return this;
+    }
+
+    /**
+     * 设置中间自定义view布局id
+     *
+     * @param layoutId
+     * @return
+     */
+    public FTitle setViewMiddle(int layoutId)
+    {
+        ll_middle.removeAllViews();
+        if (layoutId != 0)
+        {
+            LayoutInflater.from(getContext()).inflate(layoutId, ll_middle, true);
+        }
+        return this;
+    }
+
+    /**
+     * 设置右边自定义view布局id
+     *
+     * @param layoutId
+     * @return
+     */
+    public FTitle setViewRight(int layoutId)
+    {
+        ll_right.removeAllViews();
+        if (layoutId != 0)
+        {
+            LayoutInflater.from(getContext()).inflate(layoutId, ll_right, true);
+        }
+        return this;
+    }
+
+    /**
      * 设置左边自定义view
      *
      * @param view
