@@ -34,13 +34,10 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
         mTitle.addItemRight().setTextBottom("关注"); //往右边添加一个按钮
         mTitle.addItemRight().setTextBottom("收藏"); //往右边添加一个按钮
 
-//        mTitle.getItemLeft(0).removeSelf();   //移除左边第0个item
-//        mTitle.getItemMiddle(0).removeSelf(); //移除中间第0个item
-//        mTitle.getItemRight(0).removeSelf();  //移除右边第0个item
+//        mTitle.getItemMiddle(0).removeSelf(); //移除中间第0个item，支持左边，中间，右边
 
-//        mTitle.setViewLeft(view);   //设置左边自定义view
-//        mTitle.setViewMiddle(view); //设置中间自定义view
-//        mTitle.setViewRight(view);  //设置右边自定义view
+//        mTitle.setViewMiddle(view);                       //设置中间自定义view，支持左边，中间，右边
+//        mTitle.setViewMiddle(R.layout.view_title_middle); //设置中间自定义view布局，支持左边，中间，右边
     }
 
     @Override

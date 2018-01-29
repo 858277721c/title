@@ -30,12 +30,22 @@ public class FTitle extends FrameLayout
 
     private void init()
     {
-        LayoutInflater.from(getContext()).inflate(R.layout.lib_title_title, this, true);
+        setModeRelativeLayout();
+        setDefaultConfig();
+    }
+
+    private void findViews()
+    {
         ll_left = findViewById(R.id.lib_title_ll_left);
         ll_middle = findViewById(R.id.lib_title_ll_middle);
         ll_right = findViewById(R.id.lib_title_ll_right);
+    }
 
-        setDefaultConfig();
+    public void setModeRelativeLayout()
+    {
+        removeAllViews();
+        LayoutInflater.from(getContext()).inflate(R.layout.lib_title_title_mode_relativelayout, this, true);
+        findViews();
     }
 
     public void setCallback(Callback callback)
