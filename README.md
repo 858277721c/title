@@ -2,6 +2,27 @@
 [![](https://jitpack.io/v/zj565061763/title.svg)](https://jitpack.io/#zj565061763/title)
 
 ## 使用
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.fanwe.lib.title.FTitle
+        android:id="@+id/view_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lib_title_height_title_bar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!" />
+
+</LinearLayout>
+```
+
 ```java
 public class MainActivity extends AppCompatActivity implements FTitle.Callback
 {
