@@ -112,7 +112,7 @@ public class FTitle extends FrameLayout
      * @param count
      * @return
      */
-    public FTitle setItemCountLeft(int count)
+    public FTitle initItemCountLeft(int count)
     {
         getContainerLeft().removeAllViews();
         for (int i = 0; i < count; i++)
@@ -128,7 +128,7 @@ public class FTitle extends FrameLayout
      * @param count
      * @return
      */
-    public FTitle setItemCountMiddle(int count)
+    public FTitle initItemCountMiddle(int count)
     {
         getContainerMiddle().removeAllViews();
         for (int i = 0; i < count; i++)
@@ -144,7 +144,7 @@ public class FTitle extends FrameLayout
      * @param count
      * @return
      */
-    public FTitle setItemCountRight(int count)
+    public FTitle initItemCountRight(int count)
     {
         getContainerRight().removeAllViews();
         for (int i = 0; i < count; i++)

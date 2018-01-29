@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
         mTitleCustom.addItemLeft().setImageLeft(R.drawable.ic_arrow_left_white);
         mTitleCustom.setViewMiddle(R.layout.view_title_middle); //设置中间自定义view布局，支持左边，中间，右边
 
-        mTitleCustom.setItemCountRight(1)  //设置右边item的数量
+        mTitleCustom.initItemCountRight(1)  //设置右边item的数量
                 .getItemRight(0)     //获得第0个item
                 .setTextBottom("搜索");
     }
