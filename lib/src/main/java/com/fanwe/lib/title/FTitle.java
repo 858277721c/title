@@ -113,6 +113,7 @@ public class FTitle extends FrameLayout
                 getCallback().onClickItemMiddleTitleBar(index, item);
             }
         });
+        item.setClickable(false);
         return item;
     }
 

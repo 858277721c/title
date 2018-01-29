@@ -31,8 +31,6 @@ public class FTitleItem extends FrameLayout
     public TextView tv_top;
     public TextView tv_bottom;
 
-    private OnClickListener mOnClickListenerSaved;
-
     private void init()
     {
         LayoutInflater.from(getContext()).inflate(R.layout.lib_title_title_item, this, true);
@@ -44,6 +42,7 @@ public class FTitleItem extends FrameLayout
 
         setDefaultConfig();
         setAllViewsVisibility(View.GONE);
+        setClickable(true);
     }
 
     private void setDefaultConfig()
@@ -124,11 +123,9 @@ public class FTitleItem extends FrameLayout
     {
         if (hasViewVisible())
         {
-            super.setOnClickListener(mOnClickListenerSaved);
             setVisibility(VISIBLE);
         } else
         {
-            super.setOnClickListener(null);
             setVisibility(GONE);
         }
     }
@@ -136,9 +133,9 @@ public class FTitleItem extends FrameLayout
     @Override
     public void setOnClickListener(OnClickListener l)
     {
+        final boolean isClickable = isClickable();
         super.setOnClickListener(l);
-        mOnClickListenerSaved = l;
-        updateItemState();
+        setClickable(isClickable);
     }
 
     //---------- util method start ----------
