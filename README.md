@@ -1,6 +1,10 @@
 ## Gradle
 [![](https://jitpack.io/v/zj565061763/title.svg)](https://jitpack.io/#zj565061763/title)
 
+
+## 效果图
+![](http://thumbsnap.com/W9PZ6Ish?src=tsd)
+
 ## 使用
 
 ```xml
