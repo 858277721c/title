@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
                 .setTextTop("top")                              //设置item顶部的文字
                 .setTextBottom("bottom");                       //设置item底部的文字
 
+        mTitle.getItemRight().setTextBottom("分享"); //返回右边第0个item，如果不存在，则创建，支持左边，中间，右边
         mTitle.addItemRight().setTextBottom("关注"); //往右边添加一个按钮
         mTitle.addItemRight().setTextBottom("收藏"); //往右边添加一个按钮
 
@@ -73,7 +74,10 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
 
         mTitleCustom.addItemLeft().setImageLeft(R.drawable.ic_arrow_left_white);
         mTitleCustom.setViewMiddle(R.layout.view_title_middle); //设置中间自定义view布局，支持左边，中间，右边
-        mTitleCustom.addItemRight().setTextBottom("搜索");
+
+        mTitleCustom.initItemCountRight(1)  //设置右边item的数量
+                .getItemRight(0)     //获得第0个item
+                .setTextBottom("搜索");
     }
 
     @Override
@@ -94,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
         Log.i(TAG, "onClickItemRightTitleBar:" + index);
     }
 }
+
 ```
 
 ## 可以覆盖的配置
