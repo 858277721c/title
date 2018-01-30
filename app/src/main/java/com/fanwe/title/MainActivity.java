@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
                 .setTextTop("top")                              //设置item顶部的文字
                 .setTextBottom("bottom");                       //设置item底部的文字
 
+        mTitle.getItemRight().setTextBottom("分享"); //返回右边第0个item，如果不存在，则创建
         mTitle.addItemRight().setTextBottom("关注"); //往右边添加一个按钮
         mTitle.addItemRight().setTextBottom("收藏"); //往右边添加一个按钮
 
