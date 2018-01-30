@@ -395,6 +395,22 @@ public class FTitle extends FrameLayout
         return item;
     }
 
+    /**
+     * 返回右边第0个item，如果不存在，则创建
+     *
+     * @return
+     */
+    public FTitleItem getItemRight()
+    {
+        FTitleItem item = getItemRight(0);
+        if (item == null)
+        {
+            initItemCountRight(1);
+            item = getItemRight(0);
+        }
+        return item;
+    }
+
     //---------- friendly method start ----------
 
     public interface Callback
