@@ -361,6 +361,42 @@ public class FTitle extends FrameLayout
 
     //---------- custom end ----------
 
+    //---------- friendly method start ----------
+
+    /**
+     * 返回左边第0个item，如果不存在，则创建
+     *
+     * @return
+     */
+    public FTitleItem getItemLeft()
+    {
+        FTitleItem item = getItemLeft(0);
+        if (item == null)
+        {
+            initItemCountLeft(1);
+            item = getItemLeft(0);
+        }
+        return item;
+    }
+
+    /**
+     * 返回中间第0个item，如果不存在，则创建
+     *
+     * @return
+     */
+    public FTitleItem getItemMiddle()
+    {
+        FTitleItem item = getItemMiddle(0);
+        if (item == null)
+        {
+            initItemCountMiddle(1);
+            item = getItemMiddle(0);
+        }
+        return item;
+    }
+
+    //---------- friendly method start ----------
+
     public interface Callback
     {
         void onClickItemLeftTitleBar(int index, FTitleItem item);
