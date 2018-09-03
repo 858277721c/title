@@ -1,11 +1,11 @@
-package com.fanwe.title;
+package com.sd.title;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.fanwe.lib.title.FTitle;
-import com.fanwe.lib.title.FTitleItem;
+import com.sd.lib.title.FTitle;
+import com.sd.lib.title.FTitleItem;
 
 public class MainActivity extends AppCompatActivity implements FTitle.Callback
 {

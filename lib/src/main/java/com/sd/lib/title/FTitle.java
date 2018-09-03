@@ -1,4 +1,4 @@
-package com.fanwe.lib.title;
+package com.sd.lib.title;
 
 import android.content.Context;
 import android.util.AttributeSet;
