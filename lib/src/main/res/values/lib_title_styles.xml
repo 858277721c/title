@@ -3,6 +3,7 @@
 
     <style name="lib_title_text_title_bar_base">
         <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <!-- 标题栏文字 -->
