@@ -10,26 +10,16 @@ import android.widget.LinearLayout;
 
 public class FTitle extends FrameLayout
 {
-    public FTitle(Context context)
-    {
-        super(context);
-        init();
-    }
-
-    public FTitle(Context context, AttributeSet attrs)
-    {
-        super(context, attrs);
-        init();
-    }
-
     private LinearLayout ll_left;
     private LinearLayout ll_middle;
     private LinearLayout ll_right;
 
     private Callback mCallback;
 
-    private void init()
+    public FTitle(Context context, AttributeSet attrs)
     {
+        super(context, attrs);
+
         setContainerFrameLayout();
         setDefaultConfig();
     }
@@ -87,8 +77,10 @@ public class FTitle extends FrameLayout
 
     private void setDefaultConfig()
     {
-        final int color = getResources().getColor(R.color.lib_title_bg_title_bar);
-        setBackgroundColor(color);
+        if (getBackground() == null)
+        {
+            setBackgroundResource(R.drawable.lib_title_bg_title_bar);
+        }
     }
 
     public LinearLayout getContainerLeft()
