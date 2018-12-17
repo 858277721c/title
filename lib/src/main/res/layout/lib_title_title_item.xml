@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:minWidth="@dimen/lib_title_width_title_bar_item"
+    android:minWidth="@dimen/lib_title_min_width_title_bar_item"
     android:orientation="horizontal"
     android:paddingLeft="2dp"
     android:paddingRight="2dp">

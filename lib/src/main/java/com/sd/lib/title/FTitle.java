@@ -219,7 +219,7 @@ public class FTitle extends FrameLayout
 
     private FTitleItem addItemToParent(final ViewGroup parent)
     {
-        FTitleItem item = new FTitleItem(getContext());
+        FTitleItem item = new FTitleItem(getContext(), null);
 
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
         parent.addView(item, params);

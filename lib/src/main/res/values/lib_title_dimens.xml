@@ -9,7 +9,7 @@
     <dimen name="lib_title_text_title_bar_sub">16sp</dimen>
 
     <!-- 标题栏item的最小宽度 -->
-    <dimen name="lib_title_width_title_bar_item">40dp</dimen>
+    <dimen name="lib_title_min_width_title_bar_item">40dp</dimen>
 
     <!-- 标题栏icon图标的宽度 -->
     <dimen name="lib_title_width_title_bar_item_image">20dp</dimen>

@@ -14,24 +14,18 @@ import android.widget.TextView;
 
 public class FTitleItem extends FrameLayout
 {
-    public FTitleItem(Context context, AttributeSet attrs)
-    {
-        super(context, attrs);
-        init();
-    }
-
-    public FTitleItem(Context context)
-    {
-        super(context);
-        init();
-    }
-
     public ImageView iv_left;
     public ImageView iv_right;
 
     public LinearLayout ll_text;
     public TextView tv_top;
     public TextView tv_bottom;
+
+    public FTitleItem(Context context, AttributeSet attrs)
+    {
+        super(context, attrs);
+        init();
+    }
 
     private void init()
     {
@@ -42,14 +36,8 @@ public class FTitleItem extends FrameLayout
         tv_top = findViewById(R.id.lib_title_tv_top);
         tv_bottom = findViewById(R.id.lib_title_tv_bottom);
 
-        setDefaultConfig();
         setAllViewsVisibility(View.GONE);
         setClickable(true);
-    }
-
-    private void setDefaultConfig()
-    {
-        setBackgroundDrawable(getResources().getDrawable(R.drawable.lib_title_sel_title_bar_item));
     }
 
     private void setAllViewsVisibility(int visibility)
@@ -145,11 +133,10 @@ public class FTitleItem extends FrameLayout
      */
     public void removeSelf()
     {
-        ViewParent viewParent = getParent();
+        final ViewParent viewParent = getParent();
         if (viewParent instanceof ViewGroup)
         {
-            ViewGroup viewGroup = (ViewGroup) viewParent;
-            viewGroup.removeView(this);
+            ((ViewGroup) viewParent).removeView(this);
         }
     }
 
