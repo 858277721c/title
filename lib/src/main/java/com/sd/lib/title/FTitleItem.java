@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 public class FTitleItem extends FrameLayout
 {
+    public View view_root;
     public ImageView iv_left;
     public ImageView iv_right;
 
@@ -30,6 +31,7 @@ public class FTitleItem extends FrameLayout
     private void init()
     {
         LayoutInflater.from(getContext()).inflate(R.layout.lib_title_title_item, this, true);
+        view_root = findViewById(R.id.lib_title_view_root);
         iv_left = findViewById(R.id.lib_title_iv_left);
         iv_right = findViewById(R.id.lib_title_iv_right);
         ll_text = findViewById(R.id.lib_title_ll_text);
