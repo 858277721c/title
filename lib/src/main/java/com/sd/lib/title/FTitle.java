@@ -45,6 +45,7 @@ public class FTitle extends FrameLayout
         findViews();
     }
 
+    @Deprecated
     public void setCallback(Callback callback)
     {
         mCallback = callback;
@@ -403,8 +404,9 @@ public class FTitle extends FrameLayout
         return item;
     }
 
-    //---------- friendly method start ----------
+    //---------- friendly method end ----------
 
+    @Deprecated
     public interface Callback
     {
         void onClickItemLeftTitleBar(int index, FTitleItem item);

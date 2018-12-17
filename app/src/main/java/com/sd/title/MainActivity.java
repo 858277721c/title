@@ -2,14 +2,12 @@ package com.sd.title;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.sd.lib.title.FTitle;
-import com.sd.lib.title.FTitleItem;
 
-public class MainActivity extends AppCompatActivity implements FTitle.Callback
+public class MainActivity extends AppCompatActivity
 {
     public static final String TAG = MainActivity.class.getSimpleName();
     private FTitle mTitle, mTitleCustom;
@@ -28,8 +26,6 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
 
     private void initTitle()
     {
-        mTitle.setCallback(this); //设置回调对象
-
         /**
          * 往左边添加一个item
          */
@@ -95,32 +91,34 @@ public class MainActivity extends AppCompatActivity implements FTitle.Callback
 
     private void initTitleCustom()
     {
-        mTitleCustom.setContainerLinearLayout(); //设置title最外层布局为LinearLayout，默认是FrameLayout
-        mTitleCustom.setCallback(this);
+        /**
+         * 设置title最外层布局为LinearLayout，默认是FrameLayout
+         */
+        mTitleCustom.setContainerLinearLayout();
 
         mTitleCustom.addItemLeft().setImageLeft(R.drawable.ic_arrow_left_white);
-        mTitleCustom.setViewMiddle(R.layout.view_title_middle); //设置中间自定义view布局，支持左边，中间，右边
 
-        mTitleCustom.initItemCountRight(1)  //设置右边item的数量
-                .getItemRight(0)     //获得第0个item
-                .setTextBottom("搜索");
-    }
+        /**
+         * 设置中间自定义view布局
+         */
+        mTitleCustom.setViewMiddle(R.layout.view_title_middle);
 
-    @Override
-    public void onClickItemLeftTitleBar(int index, FTitleItem item)
-    {
-        Log.i(TAG, "onClickItemLeftTitleBar:" + index);
-    }
-
-    @Override
-    public void onClickItemMiddleTitleBar(int index, FTitleItem item)
-    {
-        Log.i(TAG, "onClickItemMiddleTitleBar:" + index);
-    }
-
-    @Override
-    public void onClickItemRightTitleBar(int index, FTitleItem item)
-    {
-        Log.i(TAG, "onClickItemRightTitleBar:" + index);
+        /**
+         * 设置右边item的数量
+         */
+        mTitleCustom.initItemCountRight(1)
+                /**
+                 * 获得第0个item
+                 */
+                .getItemRight(0)
+                .setTextBottom("搜索")
+                .setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        Toast.makeText(MainActivity.this, "搜索", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }
