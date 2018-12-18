@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.sd.lib.title.viewconfig.ImageViewConfig;
+import com.sd.lib.title.viewconfig.TextViewConfig;
+
 public class FTitleItem extends FrameLayout
 {
     public View view_root;
@@ -21,6 +24,12 @@ public class FTitleItem extends FrameLayout
     public LinearLayout ll_text;
     public TextView tv_top;
     public TextView tv_bottom;
+
+    private ItemTextViewConfig mConfigTvTop;
+    private ItemTextViewConfig mConfigTvBottom;
+
+    private ItemImageViewConfig mConfigIvLeft;
+    private ItemImageViewConfig mConfigIvRight;
 
     public FTitleItem(Context context, AttributeSet attrs)
     {
@@ -53,37 +62,59 @@ public class FTitleItem extends FrameLayout
         updateItemState();
     }
 
+    public ItemTextViewConfig textTop()
+    {
+        if (mConfigTvTop == null)
+            mConfigTvTop = new ItemTextViewConfig(tv_top);
+        return mConfigTvTop;
+    }
+
+    public ItemTextViewConfig textBottom()
+    {
+        if (mConfigTvBottom == null)
+            mConfigTvBottom = new ItemTextViewConfig(tv_bottom);
+        return mConfigTvBottom;
+    }
+
+    public ItemImageViewConfig imageLeft()
+    {
+        if (mConfigIvLeft == null)
+            mConfigIvLeft = new ItemImageViewConfig(iv_left);
+        return mConfigIvLeft;
+    }
+
+    public ItemImageViewConfig imageRight()
+    {
+        if (mConfigIvRight == null)
+            mConfigIvRight = new ItemImageViewConfig(iv_right);
+        return mConfigIvRight;
+    }
+
+    @Deprecated
     public FTitleItem setTextTop(String text)
     {
-        setTextViewVisibleOrGone(text, tv_top);
-        updateItemState();
+        textTop().setText(text);
         return this;
     }
 
+    @Deprecated
     public FTitleItem setTextBottom(String text)
     {
-        setTextViewVisibleOrGone(text, tv_bottom);
-        updateItemState();
+        textBottom().setText(text);
         return this;
     }
 
-    public FTitleItem setBackgroundText(int resId)
-    {
-        ll_text.setBackgroundResource(resId);
-        return this;
-    }
-
+    @Deprecated
     public FTitleItem setImageLeft(int resId)
     {
-        setImageViewVisibleOrGone(resId, iv_left);
-        updateItemState();
+        imageLeft().setImageResource(resId);
         return this;
     }
 
+    @Deprecated
     public FTitleItem setImageRight(int resId)
     {
-        setImageViewVisibleOrGone(resId, iv_right);
-        updateItemState();
+        imageRight().setImageResource(resId);
         return this;
     }
 
@@ -142,32 +173,52 @@ public class FTitleItem extends FrameLayout
         }
     }
 
-    //---------- util method start ----------
-
-    private static void setTextViewVisibleOrGone(String text, TextView textView)
+    public class ItemTextViewConfig extends TextViewConfig<ItemTextViewConfig> implements ItemAccessor
     {
-        if (TextUtils.isEmpty(text))
+        public ItemTextViewConfig(TextView view)
         {
-            textView.setVisibility(GONE);
-        } else
-        {
-            textView.setVisibility(VISIBLE);
+            super(view);
         }
-        textView.setText(text);
-    }
 
-    private static void setImageViewVisibleOrGone(int resId, ImageView imageView)
-    {
-        if (resId == 0)
+        @Override
+        public FTitleItem item()
         {
-            imageView.setVisibility(View.GONE);
-        } else
+            return FTitleItem.this;
+        }
+
+        @Override
+        public ItemTextViewConfig setText(CharSequence text)
         {
-            imageView.setVisibility(View.VISIBLE);
-            imageView.setImageResource(resId);
+            getView().setVisibility(TextUtils.isEmpty(text) ? GONE : VISIBLE);
+            updateItemState();
+            return super.setText(text);
         }
     }
 
-    //---------- util method end ----------
+    public class ItemImageViewConfig extends ImageViewConfig<ItemImageViewConfig> implements ItemAccessor
+    {
+        public ItemImageViewConfig(ImageView view)
+        {
+            super(view);
+        }
 
+        @Override
+        public ItemImageViewConfig setImageResource(int resId)
+        {
+            getView().setVisibility(resId == 0 ? GONE : VISIBLE);
+            updateItemState();
+            return super.setImageResource(resId);
+        }
+
+        @Override
+        public FTitleItem item()
+        {
+            return FTitleItem.this;
+        }
+    }
+
+    public interface ItemAccessor
+    {
+        FTitleItem item();
+    }
 }
