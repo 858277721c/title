@@ -1,0 +1,52 @@
+<resources>
+
+    <!--          color          -->
+
+    <!-- 标题栏颜色 -->
+    <color name="lib_title_bg_title_bar">#FB6F08</color>
+
+    <!-- 标题栏文字颜色 -->
+    <color name="lib_title_text_title_bar">#FFFFFF</color>
+    <!-- 标题栏较小的文字颜色 -->
+    <color name="lib_title_text_title_bar_sub">@color/lib_title_text_title_bar</color>
+
+
+    <!--          dimen          -->
+
+    <!-- 标题栏高度 -->
+    <dimen name="lib_title_height_title_bar">45dp</dimen>
+
+    <!-- 标题栏文字大小 -->
+    <dimen name="lib_title_text_title_bar">18sp</dimen>
+    <!-- 标题栏较小的文字大小 -->
+    <dimen name="lib_title_text_title_bar_sub">16sp</dimen>
+
+    <!-- 标题栏item的最小宽度 -->
+    <dimen name="lib_title_min_width_title_bar_item">40dp</dimen>
+
+    <!-- 标题栏icon图标的宽度 -->
+    <dimen name="lib_title_width_title_bar_item_image">20dp</dimen>
+    <!-- 标题栏icon图标的高度 -->
+    <dimen name="lib_title_height_title_bar_item_image">20dp</dimen>
+
+
+    <!--          style          -->
+
+    <style name="lib_title_text_title_bar_base">
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!-- 标题栏文字 -->
+    <style name="lib_title_text_title_bar" parent="lib_title_text_title_bar_base">
+        <item name="android:textColor">@color/lib_title_text_title_bar</item>
+        <item name="android:textSize">@dimen/lib_title_text_title_bar</item>
+    </style>
+
+    <!-- 标题栏较小文字 -->
+    <style name="lib_title_text_title_bar_sub" parent="lib_title_text_title_bar_base">
+        <item name="android:textColor">@color/lib_title_text_title_bar_sub</item>
+        <item name="android:textSize">@dimen/lib_title_text_title_bar_sub</item>
+    </style>
+
+</resources>
