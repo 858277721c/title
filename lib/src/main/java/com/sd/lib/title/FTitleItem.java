@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,13 +16,12 @@ import com.sd.lib.title.viewconfig.TextViewConfig;
 
 public class FTitleItem extends FrameLayout
 {
-    public View view_root;
-    public ImageView iv_left;
-    public ImageView iv_right;
+    private ImageView iv_left;
+    private ImageView iv_right;
 
-    public LinearLayout ll_text;
-    public TextView tv_top;
-    public TextView tv_bottom;
+    private LinearLayout ll_text;
+    private TextView tv_top;
+    private TextView tv_bottom;
 
     private ItemTextViewConfig mConfigTvTop;
     private ItemTextViewConfig mConfigTvBottom;
@@ -40,7 +38,6 @@ public class FTitleItem extends FrameLayout
     private void init()
     {
         LayoutInflater.from(getContext()).inflate(R.layout.lib_title_title_item, this, true);
-        view_root = findViewById(R.id.lib_title_view_root);
         iv_left = findViewById(R.id.lib_title_iv_left);
         iv_right = findViewById(R.id.lib_title_iv_right);
         ll_text = findViewById(R.id.lib_title_ll_text);
@@ -61,6 +58,11 @@ public class FTitleItem extends FrameLayout
         updateItemState();
     }
 
+    /**
+     * 顶部文字
+     *
+     * @return
+     */
     public ItemTextViewConfig textTop()
     {
         if (mConfigTvTop == null)
@@ -68,6 +70,11 @@ public class FTitleItem extends FrameLayout
         return mConfigTvTop;
     }
 
+    /**
+     * 底部文字
+     *
+     * @return
+     */
     public ItemTextViewConfig textBottom()
     {
         if (mConfigTvBottom == null)
@@ -75,6 +82,11 @@ public class FTitleItem extends FrameLayout
         return mConfigTvBottom;
     }
 
+    /**
+     * 左边图片
+     *
+     * @return
+     */
     public ItemImageViewConfig imageLeft()
     {
         if (mConfigIvLeft == null)
@@ -82,39 +94,16 @@ public class FTitleItem extends FrameLayout
         return mConfigIvLeft;
     }
 
+    /**
+     * 右边图片
+     *
+     * @return
+     */
     public ItemImageViewConfig imageRight()
     {
         if (mConfigIvRight == null)
             mConfigIvRight = new ItemImageViewConfig(iv_right);
         return mConfigIvRight;
-    }
-
-    @Deprecated
-    public FTitleItem setTextTop(String text)
-    {
-        textTop().setText(text);
-        return this;
-    }
-
-    @Deprecated
-    public FTitleItem setTextBottom(String text)
-    {
-        textBottom().setText(text);
-        return this;
-    }
-
-    @Deprecated
-    public FTitleItem setImageLeft(int resId)
-    {
-        imageLeft().setImageResource(resId);
-        return this;
-    }
-
-    @Deprecated
-    public FTitleItem setImageRight(int resId)
-    {
-        imageRight().setImageResource(resId);
-        return this;
     }
 
     private boolean hasViewVisible()
@@ -157,10 +146,11 @@ public class FTitleItem extends FrameLayout
      */
     public void removeSelf()
     {
-        final ViewParent viewParent = getParent();
-        if (viewParent instanceof ViewGroup)
+        try
         {
-            ((ViewGroup) viewParent).removeView(this);
+            ((ViewGroup) getParent()).removeView(this);
+        } catch (Exception e)
+        {
         }
     }
 
