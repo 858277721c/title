@@ -1,5 +1,6 @@
 package com.sd.lib.title;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -14,21 +15,11 @@ public class FTitle extends FrameLayout
     private LinearLayout ll_middle;
     private LinearLayout ll_right;
 
-    private Callback mCallback;
-
     public FTitle(Context context, AttributeSet attrs)
     {
         super(context, attrs);
-
         setContainerFrameLayout();
         setDefaultConfig();
-    }
-
-    private void findViews()
-    {
-        ll_left = findViewById(R.id.lib_title_ll_left);
-        ll_middle = findViewById(R.id.lib_title_ll_middle);
-        ll_right = findViewById(R.id.lib_title_ll_right);
     }
 
     public void setContainerFrameLayout()
@@ -45,42 +36,24 @@ public class FTitle extends FrameLayout
         findViews();
     }
 
-    @Deprecated
-    public void setCallback(Callback callback)
+    private void findViews()
     {
-        mCallback = callback;
-    }
-
-    private Callback getCallback()
-    {
-        if (mCallback == null)
-        {
-            mCallback = new Callback()
-            {
-                @Override
-                public void onClickItemLeftTitleBar(int index, FTitleItem item)
-                {
-                }
-
-                @Override
-                public void onClickItemMiddleTitleBar(int index, FTitleItem item)
-                {
-                }
-
-                @Override
-                public void onClickItemRightTitleBar(int index, FTitleItem item)
-                {
-                }
-            };
-        }
-        return mCallback;
+        ll_left = findViewById(R.id.lib_title_ll_left);
+        ll_middle = findViewById(R.id.lib_title_ll_middle);
+        ll_right = findViewById(R.id.lib_title_ll_right);
     }
 
     private void setDefaultConfig()
     {
         if (getBackground() == null)
-        {
             setBackgroundResource(R.drawable.lib_title_bg_title_bar);
+
+        if (getLayoutParams() == null)
+        {
+            final ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    getResources().getDimensionPixelSize(R.dimen.lib_title_height_title_bar));
+
+            setLayoutParams(params);
         }
     }
 
@@ -157,15 +130,22 @@ public class FTitle extends FrameLayout
     public FTitleItem addItemLeft()
     {
         final FTitleItem item = addItemToParent(getContainerLeft());
-        item.setOnClickListener(new OnClickListener()
+
+        if (getContainerLeft().getChildCount() == 1)
         {
-            @Override
-            public void onClick(View v)
+            item.imageLeft().setImageResource(R.drawable.lib_title_ic_arrow_back);
+            item.setOnClickListener(new OnClickListener()
             {
-                final int index = getContainerLeft().indexOfChild(item);
-                getCallback().onClickItemLeftTitleBar(index, item);
-            }
-        });
+                @Override
+                public void onClick(View v)
+                {
+                    final Context context = getContext();
+                    if (context instanceof Activity)
+                        ((Activity) context).finish();
+                }
+            });
+        }
+
         return item;
     }
 
@@ -177,16 +157,6 @@ public class FTitle extends FrameLayout
     public FTitleItem addItemMiddle()
     {
         final FTitleItem item = addItemToParent(getContainerMiddle());
-        item.setOnClickListener(new OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                final int index = getContainerMiddle().indexOfChild(item);
-                getCallback().onClickItemMiddleTitleBar(index, item);
-            }
-        });
-        item.setClickable(false);
         return item;
     }
 
@@ -198,15 +168,6 @@ public class FTitle extends FrameLayout
     public FTitleItem addItemRight()
     {
         final FTitleItem item = addItemToParent(getContainerRight());
-        item.setOnClickListener(new OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                final int index = getContainerRight().indexOfChild(item);
-                getCallback().onClickItemRightTitleBar(index, item);
-            }
-        });
         return item;
     }
 
@@ -405,14 +366,4 @@ public class FTitle extends FrameLayout
     }
 
     //---------- friendly method end ----------
-
-    @Deprecated
-    public interface Callback
-    {
-        void onClickItemLeftTitleBar(int index, FTitleItem item);
-
-        void onClickItemMiddleTitleBar(int index, FTitleItem item);
-
-        void onClickItemRightTitleBar(int index, FTitleItem item);
-    }
 }

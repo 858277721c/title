@@ -48,7 +48,6 @@ public class FTitleItem extends FrameLayout
         tv_bottom = findViewById(R.id.lib_title_tv_bottom);
 
         setAllViewsVisibility(View.GONE);
-        setClickable(true);
     }
 
     private void setAllViewsVisibility(int visibility)
@@ -151,14 +150,6 @@ public class FTitleItem extends FrameLayout
         {
             setVisibility(GONE);
         }
-    }
-
-    @Override
-    public void setOnClickListener(OnClickListener l)
-    {
-        final boolean isClickable = isClickable();
-        super.setOnClickListener(l);
-        setClickable(isClickable);
     }
 
     /**
