@@ -11,15 +11,21 @@ import android.widget.LinearLayout;
 
 public class FTitle extends FrameLayout
 {
-    private LinearLayout ll_left;
-    private LinearLayout ll_middle;
-    private LinearLayout ll_right;
+    public FTitle(Context context)
+    {
+        super(context);
+        setContainerFrameLayout();
+    }
 
     public FTitle(Context context, AttributeSet attrs)
     {
         super(context, attrs);
         setContainerFrameLayout();
     }
+
+    private LinearLayout ll_left;
+    private LinearLayout ll_middle;
+    private LinearLayout ll_right;
 
     /**
      * 设置标题栏为{@link FrameLayout}布局
