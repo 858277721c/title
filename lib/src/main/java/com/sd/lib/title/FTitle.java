@@ -19,21 +19,30 @@ public class FTitle extends FrameLayout
     {
         super(context, attrs);
         setContainerFrameLayout();
-        setDefaultConfig();
     }
 
+    /**
+     * 设置标题栏为{@link FrameLayout}布局
+     */
     public void setContainerFrameLayout()
     {
-        removeAllViews();
-        LayoutInflater.from(getContext()).inflate(R.layout.lib_title_title_container_framelayout, this, true);
-        findViews();
+        setContainerLayout(R.layout.lib_title_title_container_framelayout);
     }
 
+    /**
+     * 设置标题栏为{@link LinearLayout}布局
+     */
     public void setContainerLinearLayout()
     {
+        setContainerLayout(R.layout.lib_title_title_container_linearlayout);
+    }
+
+    private void setContainerLayout(int layoutId)
+    {
         removeAllViews();
-        LayoutInflater.from(getContext()).inflate(R.layout.lib_title_title_container_linearlayout, this, true);
+        LayoutInflater.from(getContext()).inflate(layoutId, this, true);
         findViews();
+        setDefaultConfig();
     }
 
     private void findViews()
@@ -54,6 +63,22 @@ public class FTitle extends FrameLayout
                     getResources().getDimensionPixelSize(R.dimen.lib_title_height_title_bar));
 
             setLayoutParams(params);
+        }
+
+        if (getContainerLeft().getChildCount() <= 0)
+        {
+            final FTitleItem item = getItemLeft();
+            item.imageLeft().setImageResource(R.drawable.lib_title_ic_arrow_back);
+            item.setOnClickListener(new OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    final Context context = getContext();
+                    if (context instanceof Activity)
+                        ((Activity) context).finish();
+                }
+            });
         }
     }
 
@@ -130,22 +155,6 @@ public class FTitle extends FrameLayout
     public FTitleItem addItemLeft()
     {
         final FTitleItem item = addItemToParent(getContainerLeft());
-
-        if (getContainerLeft().getChildCount() == 1)
-        {
-            item.imageLeft().setImageResource(R.drawable.lib_title_ic_arrow_back);
-            item.setOnClickListener(new OnClickListener()
-            {
-                @Override
-                public void onClick(View v)
-                {
-                    final Context context = getContext();
-                    if (context instanceof Activity)
-                        ((Activity) context).finish();
-                }
-            });
-        }
-
         return item;
     }
 
