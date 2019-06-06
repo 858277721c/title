@@ -14,10 +14,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.sd.lib.title.FTitle
-        android:id="@+id/view_title"
+    <FrameLayout
+        android:id="@+id/fl_content"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/lib_title_height_title_bar" />
+        android:layout_height="wrap_content" />
 
     <com.sd.lib.title.FTitle
         android:id="@+id/view_title_custom"
@@ -32,15 +32,12 @@
 public class MainActivity extends AppCompatActivity
 {
     public static final String TAG = MainActivity.class.getSimpleName();
-    private FTitle mTitle, mTitleCustom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mTitle = findViewById(R.id.view_title);
-        mTitleCustom = findViewById(R.id.view_title_custom);
 
         initTitle();
         initTitleCustom();
@@ -48,10 +45,17 @@ public class MainActivity extends AppCompatActivity
 
     private void initTitle()
     {
+        final FTitle title = new FTitle(this);
+
+        final FrameLayout frameLayout = findViewById(R.id.fl_content);
+        frameLayout.removeAllViews();
+        frameLayout.addView(title);
+
+
         /**
          * 返回左边第0个item，如果不存在，则创建
          */
-        mTitle.getItemLeft()
+        title.getItemLeft()
                 .textBottom().setText("返回").item()
                 .imageLeft().setImageResource(R.drawable.ic_arrow_left_white).item()
                 .setOnClickListener(new View.OnClickListener()
@@ -66,7 +70,7 @@ public class MainActivity extends AppCompatActivity
         /**
          * 返回中间第0个item，如果不存在，则创建
          */
-        mTitle.getItemMiddle()
+        title.getItemMiddle()
                 .textTop().setText("top").item()
                 .textBottom().setText("bottom").item()
                 .imageLeft().setImageResource(R.drawable.ic_arrow_left_white).item()
@@ -75,7 +79,7 @@ public class MainActivity extends AppCompatActivity
         /**
          * 返回右边第0个item，如果不存在，则创建
          */
-        mTitle.getItemRight()
+        title.getItemRight()
                 .textBottom().setText("分享").item()
                 .setOnClickListener(new View.OnClickListener()
                 {
@@ -89,7 +93,7 @@ public class MainActivity extends AppCompatActivity
         /**
          * 往右边添加一个item
          */
-        mTitle.addItemRight()
+        title.addItemRight()
                 .textBottom().setText("关注").item()
                 .setOnClickListener(new View.OnClickListener()
                 {
@@ -103,7 +107,7 @@ public class MainActivity extends AppCompatActivity
         /**
          * 往右边添加一个item
          */
-        mTitle.addItemRight()
+        title.addItemRight()
                 .textBottom().setText("收藏").item()
                 .setOnClickListener(new View.OnClickListener()
                 {
@@ -117,22 +121,22 @@ public class MainActivity extends AppCompatActivity
 
     private void initTitleCustom()
     {
+        final FTitle titleCustom = findViewById(R.id.view_title_custom);
+
         /**
          * 设置title最外层布局为LinearLayout，默认是FrameLayout
          */
-        mTitleCustom.setContainerLinearLayout();
-
-        mTitleCustom.addItemLeft().imageLeft().setImageResource(R.drawable.ic_arrow_left_white);
+        titleCustom.setContainerLinearLayout();
 
         /**
          * 设置中间自定义view布局
          */
-        mTitleCustom.setViewMiddle(R.layout.view_title_middle);
+        titleCustom.setViewMiddle(R.layout.view_title_middle);
 
         /**
          * 设置右边item的数量
          */
-        mTitleCustom.initItemCountRight(1)
+        titleCustom.initItemCountRight(1)
                 /**
                  * 获得第0个item
                  */
@@ -154,4 +158,5 @@ public class MainActivity extends AppCompatActivity
 <br>
 [drawable](https://github.com/zj565061763/title/blob/master/lib/src/main/res/drawable)
 <br>
+[drawable-xxhdpi](https://github.com/zj565061763/title/blob/master/lib/src/main/res/drawable-xxhdpi)
 
