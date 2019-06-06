@@ -4,10 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.sd.lib.title.FTitle
-        android:id="@+id/view_title"
+    <FrameLayout
+        android:id="@+id/fl_content"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/lib_title_height_title_bar" />
+        android:layout_height="wrap_content" />
 
     <com.sd.lib.title.FTitle
         android:id="@+id/view_title_custom"
