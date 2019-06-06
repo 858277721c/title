@@ -14,18 +14,23 @@ public class FTitle extends FrameLayout
     public FTitle(Context context)
     {
         super(context);
-        setContainerFrameLayout();
+        init();
     }
 
     public FTitle(Context context, AttributeSet attrs)
     {
         super(context, attrs);
-        setContainerFrameLayout();
+        init();
     }
 
     private LinearLayout ll_left;
     private LinearLayout ll_middle;
     private LinearLayout ll_right;
+
+    private void init()
+    {
+        setContainerFrameLayout();
+    }
 
     /**
      * 设置标题栏为{@link FrameLayout}布局
